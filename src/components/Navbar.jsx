@@ -1,14 +1,32 @@
 import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
 import { Navlinks } from "./index.js";
+import { useSelector } from "react-redux";
+
+const themes = {
+    winter: 'winter',
+    dracula: 'dracula',
+};
+
+const getThemeFromLocalStorage = () => {
+    return localStorage.getItem('theme') || themes.winter;
+};
 
 const Navbar = () => {
-    const [theme, setTheme] = useState(false);
+    const [theme, setTheme] = useState(getThemeFromLocalStorage());
+
     const handleTheme = () => {
-        setTheme(!theme);
+        const { winter, dracula } = themes;
+        const newTheme = theme === winter ? dracula : winter;
+        setTheme(newTheme);
     };
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     return (
         <nav className='bg-base-200'>
@@ -50,6 +68,15 @@ const Navbar = () => {
                         {/* moon icon */}
                         <BsMoonFill className='swap-off h-4 w-4' />
                     </label>
+                    {/* CART LINK */}
+                    <NavLink to='/cart' className='btn btn-ghost btn-circle btn-md ml-4'>
+                        <div className='indicator'>
+                            <BsCart3 className='h-6 w-6' />
+                            <span className='badge badge-sm badge-primary indicator-item'>
+                                8
+                            </span>
+                        </div>
+                    </NavLink>
                 </div>
             </div>
         </nav>
