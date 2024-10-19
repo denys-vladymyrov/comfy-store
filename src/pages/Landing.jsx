@@ -1,5 +1,5 @@
-import { Hero } from '../components';
-import {customFetch} from "../utils/index.js";
+import {FeaturedProducts, Hero} from '../components';
+import {customFetch} from "../utils/index.jsx";
 
 const url = '/products?featured=true';
 
@@ -14,6 +14,7 @@ const Landing = () => {
     return (
         <>
             <Hero />
+            <FeaturedProducts />
         </>
     );
 };

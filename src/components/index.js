@@ -5,3 +5,6 @@ export { default as Navbar } from './Navbar';
 export { default as Navlinks } from './Navlinks';
 export { default as Hero } from './Hero';
 export { default as ErrorElement } from './ErrorElement';
+export { default as SectionTitle } from './SectionTitle';
+export { default as ProductsGrid } from './ProductsGrid';
+export { default as FeaturedProducts } from './FeaturedProducts';
