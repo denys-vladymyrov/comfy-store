@@ -8,7 +8,7 @@
 6. Axios
 7. Redux Toolkit
 
-Demo URL: [https://next-js-store-gamma.vercel.app/](http://comfy-store-react-js.denys-vladymyrov.com/)
+Demo URL: http://comfy-store-react-js.denys-vladymyrov.com/
 
 # React + Vite
 
